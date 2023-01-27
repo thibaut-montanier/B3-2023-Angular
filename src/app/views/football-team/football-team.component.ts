@@ -28,6 +28,8 @@ export class FootballTeamComponent {
   }
   onSubmit(){
     console.log(this.footballTeamFormGroup.value);
-    this.footballTeamName = this.footballTeamFormGroup.value.name!;
+    if ( this.footballTeamFormGroup.value.name != null) {
+      this.footballTeamName = this.footballTeamFormGroup.value.name;
+    }
   }
 }
