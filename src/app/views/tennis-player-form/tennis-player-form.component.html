@@ -1,0 +1,10 @@
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+  <label>name:
+    <input formControlName="name" placeholder="Nom du joueur">
+  </label>
+  <label>name:
+    <input formControlName="firstName" placeholder="Prénom du joueur">
+  </label>
+  <button type="button" (click)="onCancel()" [disabled]="!canValidate()">Cancel</button>
+  <button type="submit" [disabled]="!canValidate()">Save</button>
+</form>

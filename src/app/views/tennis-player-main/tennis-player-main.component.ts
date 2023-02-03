@@ -32,26 +32,7 @@ export class TennisPlayerMainComponent {
     firstName: new FormControl('')
   });
 
-  canValidate(){
-    return this.playerForm.dirty;
-  }
 
-  onSubmit() {
-    // en cas de sauvegarde, on enregistre les modifications dans le modèle de données
-    console.log(this.playerForm.value);
-    this.selection!.name = this.playerForm.value.name!;
-    this.selection!.firstName = this.playerForm.value.firstName!;
-    if (this.isAdding){
-      this.players.push(this.selection!);
-    }
-    this.playerForm.reset();
-    this.playerForm.setValue(this.selection!);
-
-  }
-  onCancel() {
-    this.playerForm.reset();
-    this.playerForm.setValue(this.selection!);
-  }
 
   isAdding=false;
 
@@ -60,5 +41,14 @@ export class TennisPlayerMainComponent {
     this.selection = new TennisPlayer();
     this.playerForm.reset();
     this.playerForm.setValue(this.selection!);
+  }
+  onValidated(){
+    if (this.isAdding){
+      this.players.push(this.selection!);
+      this.isAdding=false;
+    }
+  }
+  canValidate(){
+    return false;
   }
 }

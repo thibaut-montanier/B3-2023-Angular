@@ -9,6 +9,7 @@ import { CommunicationComposantMainComponent } from './views/communication-compo
 import { CommunicationComposant1Component } from './views/communication-composant/communication-composant1/communication-composant1.component';
 import { CommunicationComposant2Component } from './views/communication-composant/communication-composant2/communication-composant2.component';
 import { TennisPlayerMainComponent } from './views/tennis-player-main/tennis-player-main.component';
+import { TennisPlayerFormComponent } from './views/tennis-player-form/tennis-player-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TennisPlayerMainComponent } from './views/tennis-player-main/tennis-pla
     CommunicationComposantMainComponent,
     CommunicationComposant1Component,
     CommunicationComposant2Component,
-    TennisPlayerMainComponent
+    TennisPlayerMainComponent,
+    TennisPlayerFormComponent
   ],
   imports: [
     BrowserModule,
