@@ -12,14 +12,6 @@ export class CommunicationComposantMainComponent {
     name: 'Sampras'
   }
 
-
-  changePlayer(){
-    this.myPlayer = {
-      firstName: 'Jim',
-      name: 'Courier'
-    }
-  }
-
   currentPlayerChanged(player: TennisPlayer){
     this.myPlayer = player;
   }

@@ -1,3 +1,6 @@
 
-<p *ngIf="currentPlayer != null">Bonjour {{currentPlayer.firstName}}</p>
-<button (click)="changePlayer()">Change le joueur</button>
+<div style="border:1px solid black">
+  <p>Composant 1</p>
+  <p *ngIf="currentPlayer != null">Bonjour {{currentPlayer.firstName}}</p>
+  <button (click)="changePlayer()">Change le joueur</button>
+</div>

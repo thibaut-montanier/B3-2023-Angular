@@ -1,10 +1,9 @@
 <p>Joueur de la page principale : {{ myPlayer.firstName }}</p>
 <div>
-  <div>Composant 1</div>
-  <app-communication-composant1 [currentPlayer]="myPlayer" (currentPlayerChanged)="currentPlayerChanged($event)"></app-communication-composant1>
+  <app-communication-composant1 [currentPlayer]="myPlayer"
+    (currentPlayerChanged)="currentPlayerChanged($event)"></app-communication-composant1>
 </div>
 
 <div>
-  <div>Composant 2</div>
   <app-communication-composant2 [player]="myPlayer"></app-communication-composant2>
 </div>
