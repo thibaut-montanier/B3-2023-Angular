@@ -1,7 +1,7 @@
 import { TennisPlayer } from './../../model/tennis-player';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { outputAst } from '@angular/compiler';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tennis-player-form',
@@ -11,6 +11,8 @@ import { outputAst } from '@angular/compiler';
 export class TennisPlayerFormComponent {
 
   private _selection: TennisPlayer | null  = null;
+
+  @Output() dirtyChanged = new EventEmitter<boolean>();
 
   @Output() validated = new EventEmitter<boolean>()
   /**
@@ -35,6 +37,20 @@ export class TennisPlayerFormComponent {
     name: new FormControl(''),
     firstName: new FormControl('')
   });
+
+
+  private formStatusSubscription: Subscription | null = null;
+  ngOnInit(){
+    this.formStatusSubscription = this.playerForm.statusChanges.subscribe(()=>{
+      this.dirtyChanged.emit(this.playerForm.dirty);
+    })
+  }
+
+  ngOnDestroy(){
+    if (this.formStatusSubscription != null){
+      this.formStatusSubscription.unsubscribe();
+    }
+  }
 
 
   canValidate(){

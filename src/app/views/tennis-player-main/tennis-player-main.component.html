@@ -7,6 +7,6 @@
 <button type="button" (click)="onCreate()"  [disabled]="canValidate()">Créer</button>
 
 <app-tennis-player-form [selection]="selection"
-  (validated)="onValidated()"></app-tennis-player-form>
+  (validated)="onValidated()" (dirtyChanged)="onDirtyChanged($event)"></app-tennis-player-form>
 
 

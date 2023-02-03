@@ -48,7 +48,12 @@ export class TennisPlayerMainComponent {
       this.isAdding=false;
     }
   }
+
+  isFormDirty = false;
+  onDirtyChanged(value : boolean){
+    this.isFormDirty=value;
+  }
   canValidate(){
-    return false;
+    return this.isFormDirty;
   }
 }
