@@ -8,6 +8,7 @@ import { TennisPlayersListComponent } from './views/tennis-players-list/tennis-p
 import { CommunicationComposantMainComponent } from './views/communication-composant/communication-composant-main/communication-composant-main.component';
 import { CommunicationComposant1Component } from './views/communication-composant/communication-composant1/communication-composant1.component';
 import { CommunicationComposant2Component } from './views/communication-composant/communication-composant2/communication-composant2.component';
+import { TennisPlayerMainComponent } from './views/tennis-player-main/tennis-player-main.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CommunicationComposant2Component } from './views/communication-composan
     TennisPlayersListComponent,
     CommunicationComposantMainComponent,
     CommunicationComposant1Component,
-    CommunicationComposant2Component
+    CommunicationComposant2Component,
+    TennisPlayerMainComponent
   ],
   imports: [
     BrowserModule,
