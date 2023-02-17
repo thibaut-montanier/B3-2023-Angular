@@ -1,3 +1,4 @@
+import { TennisPlayerService } from './../../services/tennis-player.service';
 import { TennisPlayer } from './../../model/tennis-player';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
@@ -14,7 +15,7 @@ export class TennisPlayerFormComponent {
 
   @Output() dirtyChanged = new EventEmitter<boolean>();
 
-  @Output() validated = new EventEmitter<boolean>()
+  @Output() validated = new EventEmitter<boolean>();
   /**
    * On transforme l'input en setter: une fonction pour être informé d'un changement qui a eu lieu au niveau du parent
    */
@@ -26,6 +27,8 @@ export class TennisPlayerFormComponent {
       this.playerForm.setValue(value!);
     }
   }
+
+  constructor(private _playerService: TennisPlayerService) { }
 
   get selection(){
     return this._selection;
@@ -64,6 +67,7 @@ export class TennisPlayerFormComponent {
     this.selection!.firstName = this.playerForm.value.firstName!;
     this.playerForm.reset();
     this.playerForm.setValue(this.selection!);
+    this._playerService!.addPlayer(this.selection!);
     this.validated.emit(true);
 
   }

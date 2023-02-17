@@ -1,3 +1,4 @@
+import { TennisPlayerService } from './../../services/tennis-player.service';
 import { TennisPlayer } from './../../model/tennis-player';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component } from '@angular/core';
@@ -8,13 +9,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./tennis-player-main.component.scss']
 })
 export class TennisPlayerMainComponent {
-  players : TennisPlayer[]=[
-    { name: "Sampras", firstName: "Pete"},
-    { name: "Forget", firstName: "Guy" },
-    { name: "Courier",firstName: "Jim"}
-  ]
+  // players : TennisPlayer[]=[
+  //   { name: "Sampras", firstName: "Pete"},
+  //   { name: "Forget", firstName: "Guy" },
+  //   { name: "Courier",firstName: "Jim"}
+  // ]
 
   selection: TennisPlayer | null = null;
+
+
+
+  public constructor(private _playerService: TennisPlayerService){
+  }
+
+
+
+  getPlayers(){
+    return this._playerService?.getPlayers()!;
+  }
 
   selectionChanged(player: TennisPlayer){
     this.isAdding = false;
@@ -42,9 +54,9 @@ export class TennisPlayerMainComponent {
     this.playerForm.reset();
     this.playerForm.setValue(this.selection!);
   }
+
   onValidated(){
     if (this.isAdding){
-      this.players.push(this.selection!);
       this.isAdding=false;
     }
   }

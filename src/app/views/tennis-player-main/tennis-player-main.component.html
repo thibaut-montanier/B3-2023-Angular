@@ -1,5 +1,5 @@
 <p>tennis-players-list works!</p>
-<app-tennis-players-list [players]="players"
+<app-tennis-players-list [players]="getPlayers()"
         (selectionChanged)="selectionChanged($event)"
         [disabled]="canValidate()"
         [selection]="selection"></app-tennis-players-list>
