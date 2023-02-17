@@ -9,9 +9,21 @@ export class TennisPlayerService {
   constructor() {
   }
 
+  private _isAdding = false;
+  /**
+   * Indique si le systeme est en ajout ou en modification
+   * @param value
+   */
+  setIsAdding(value: boolean){
+    this._isAdding = value;
+  }
+
+
   private _playersList : TennisPlayer[] = [];
   addPlayer(player: TennisPlayer){
-    this._playersList.push(player);
+    if (this._isAdding) {
+      this._playersList.push(player);
+    }
   }
   public  getPlayers() : TennisPlayer[] {
     return this._playersList;

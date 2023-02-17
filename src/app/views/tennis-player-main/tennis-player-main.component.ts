@@ -9,19 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./tennis-player-main.component.scss']
 })
 export class TennisPlayerMainComponent {
-  // players : TennisPlayer[]=[
-  //   { name: "Sampras", firstName: "Pete"},
-  //   { name: "Forget", firstName: "Guy" },
-  //   { name: "Courier",firstName: "Jim"}
-  // ]
-
   selection: TennisPlayer | null = null;
-
-
 
   public constructor(private _playerService: TennisPlayerService){
   }
-
 
 
   getPlayers(){
@@ -29,42 +20,20 @@ export class TennisPlayerMainComponent {
   }
 
   selectionChanged(player: TennisPlayer){
-    this.isAdding = false;
+    this._playerService.setIsAdding( false);
     this.selection = player;
-    this.playerForm.reset();
-    this.playerForm.setValue(this.selection!);
   }
-
-
-  /**
-  * Formulaire contenant les champs à modifier pour un joueur de tennis
-  */
-  playerForm = new FormGroup({
-    name: new FormControl(''),
-    firstName: new FormControl('')
-  });
-
-
-
-  isAdding=false;
 
   onCreate(){
-    this.isAdding = true;
+    this._playerService.setIsAdding(true);
     this.selection = new TennisPlayer();
-    this.playerForm.reset();
-    this.playerForm.setValue(this.selection!);
-  }
-
-  onValidated(){
-    if (this.isAdding){
-      this.isAdding=false;
-    }
   }
 
   isFormDirty = false;
   onDirtyChanged(value : boolean){
     this.isFormDirty=value;
   }
+
   canValidate(){
     return this.isFormDirty;
   }
