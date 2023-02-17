@@ -28,4 +28,13 @@ export class TennisPlayerService {
   public  getPlayers() : TennisPlayer[] {
     return this._playersList;
   }
+
+  public getPlayer(nom: string | null){
+    const resultFilter =  this._playersList.filter(p=>p.name == nom);
+    if (resultFilter.length> 0){
+      return resultFilter[0];
+    }else{
+      return null;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import { TennisPlayerService } from './../../services/tennis-player.service';
 import { TennisPlayer } from './../../model/tennis-player';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -28,7 +29,24 @@ export class TennisPlayerFormComponent {
     }
   }
 
-  constructor(private _playerService: TennisPlayerService) { }
+  constructor(private _playerService: TennisPlayerService, private _activatedRoute: ActivatedRoute) { }
+
+
+  private formStatusSubscription: Subscription | null = null;
+  ngOnInit(){
+    this.formStatusSubscription = this.playerForm.statusChanges.subscribe(()=>{
+      this.dirtyChanged.emit(this.playerForm.dirty);
+    });
+    this._activatedRoute.paramMap.subscribe(v=>{
+      this.selection = this._playerService.getPlayer(v?.get('nom'));
+      if (this.selection != null){
+        this.playerForm.reset();
+        this.playerForm.setValue(this.selection!);
+      }
+
+    })
+  }
+
 
   get selection(){
     return this._selection;
@@ -42,12 +60,7 @@ export class TennisPlayerFormComponent {
   });
 
 
-  private formStatusSubscription: Subscription | null = null;
-  ngOnInit(){
-    this.formStatusSubscription = this.playerForm.statusChanges.subscribe(()=>{
-      this.dirtyChanged.emit(this.playerForm.dirty);
-    })
-  }
+
 
   ngOnDestroy(){
     if (this.formStatusSubscription != null){

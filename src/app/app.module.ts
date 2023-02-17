@@ -10,6 +10,7 @@ import { CommunicationComposant1Component } from './views/communication-composan
 import { CommunicationComposant2Component } from './views/communication-composant/communication-composant2/communication-composant2.component';
 import { TennisPlayerMainComponent } from './views/tennis-player-main/tennis-player-main.component';
 import { TennisPlayerFormComponent } from './views/tennis-player-form/tennis-player-form.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TennisPlayerFormComponent } from './views/tennis-player-form/tennis-pla
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
