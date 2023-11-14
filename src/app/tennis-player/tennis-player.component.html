@@ -3,7 +3,9 @@
 <p>Salut {{ player.firstName }} {{player.lastName }}, tu as le classement n°{{ player.rank}}</p>
 
 <ul>
-  <li *ngFor="let p of players">{{ p.firstName }} {{ p.lastName }}</li>
+  <li *ngFor="let p of players" (click)="disBonjourAuJoueur(p)">
+    {{ p.firstName }} {{ p.lastName }}
+  </li>
 </ul>
 
 <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">

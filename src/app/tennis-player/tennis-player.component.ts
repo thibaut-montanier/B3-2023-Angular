@@ -26,6 +26,9 @@ export class TennisPlayerComponent {
     this.players.push(this.player);
   }
 
+  public disBonjourAuJoueur(player: TennisPlayer){
+    alert(`salut ${player.firstName}`);
+  }
   /**
    *Indique si le control est valide ou non
    * @param controlName
