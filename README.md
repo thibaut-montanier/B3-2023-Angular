@@ -1,27 +1,23 @@
-# AppTennisPlayer
+# Travail à faire pour la prochaine séance
+## 1. Créer un formulaire de saisi de tournois
+=> Chaque tournoi à une ville (obligaoire), une dotation (obligatoire, minimum 5000) et une description (facultative)
+=> Un bouton "Valider" doit etre actif / inactif en fonction de l'état du formulaire
+=> Un message d'erreur apparaît en dessous de chaque champ si le champ n'est pas valide.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
+## 2. Affichage des tournois
+   => Je veux voir apparaître un tableau de tournoi, avec 2 colonnes (Nom et Dotation). A chaque fois que je clique sur "Save", le tournoi s'ajoute à la liste
 
-## Development server
+## 3. Fonction de modification
+=> Quand je clique sur une ligne du tableau, les valeurs du tournoi sélectionné apparaîssent dans le formulaire.
+=> Je peux modifier les valeurs, quand je clique sur "Save", la ligne du tableau doit être mise à jour.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 4. Rendre tout ça un peu ergonomique
+=> Je ne dois pas pouvoir sélectionner d'autre ligne si je suis en édition
+=> J'ai un bouton "Créer" : l'utilisateur doit cliquer sur le bouton "Créer" avant de pouvoir créer une nouvelle entrée dans le tableau.
 
-## Code scaffolding
+## 5. Pour aller plus loin
+Un petit style css sur le tableau pour mettre en gris clair l'arrière plan de l'entrée sélectionnée
+Ne pas permettre la saisie dans le formulaire tant qu'on n'a pas sélectionné d'entrée dans le tableau ou qu'on n'a pas cliqué sur "Créer"
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Note : vous pouvez également consulter https://angular.io/tutorial/tour-of-heroes qui est un très bon tuto.
