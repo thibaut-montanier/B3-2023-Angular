@@ -1,0 +1,24 @@
+<p>tennis-player works!</p>
+<p>Cool !</p>
+<p>Salut {{ player.firstName }} {{player.lastName }}, tu as le classement n°{{ player.rank}}</p>
+
+<ul>
+  <li *ngFor="let p of players">{{ p.firstName }} {{ p.lastName }}</li>
+</ul>
+
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstName">Prénom du joueur</label>
+    <input id="firstName" formControlName="firstName">
+    <div style="color:red" *ngIf="shouldShowError('firstName')">Le prénom est requis</div>
+  </div>
+  <div>
+    <label for="lastName">Nom du joueur</label>
+    <input id="lastName" formControlName="lastName">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input id="description" formControlName="description">
+  </div>
+  <button type="submit" [disabled]="!playerForm.valid">Sauvegarder</button>
+</form>
