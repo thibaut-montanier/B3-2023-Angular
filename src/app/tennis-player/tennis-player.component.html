@@ -3,7 +3,7 @@
 <p>Salut {{ player.firstName }} {{player.lastName }}, tu as le classement n°{{ player.rank}}</p>
 
 <ul>
-  <li *ngFor="let p of players" (click)="disBonjourAuJoueur(p)">
+  <li *ngFor="let p of getPlayers()" (click)="disBonjourAuJoueur(p)">
     {{ p.firstName }} {{ p.lastName }}
   </li>
 </ul>
