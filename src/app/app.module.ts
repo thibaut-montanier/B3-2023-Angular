@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { TennisPlayerComponent } from './tennis-player/tennis-player.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AccueilComponent } from './route-views/accueil/accueil.component';
+import { BonjourComponent } from './route-views/bonjour/bonjour.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TennisPlayerComponent
+    TennisPlayerComponent,
+    AccueilComponent,
+    BonjourComponent
   ],
   imports: [
     BrowserModule,
