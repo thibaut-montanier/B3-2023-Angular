@@ -1,3 +1,8 @@
+Note pour ceux qui veulent créer un projet avec Angular en version 17
+=> ng new MyProject --no-standalone
+
+Pour vérifier : vous devez avoir "app.module.ts" dans src/app.
+
 # Travail à faire pour la prochaine séance
 ## 1. Créer un formulaire de saisi de tournois
 => Chaque tournoi à une ville (obligaoire), une dotation (obligatoire, minimum 5000) et une description (facultative)
