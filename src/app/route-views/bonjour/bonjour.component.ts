@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
+import { Subscription, map } from 'rxjs';
 import { TennisPlayersService } from 'src/app/services/tennis-players.service';
 
 @Component({
@@ -20,13 +20,15 @@ export class BonjourComponent {
     map((d) => { return d.length; } )
   );
 
+  private _paramMapSubscription: Subscription | undefined;
 
   ngOnInit(){
-    // la gestion de l'observabe n'est pas propre
-    // nous verrons ça plus tard quand nous traiterons des communication http
-    // c'est suffisant pour le moment
-    this._activeRoute.paramMap.subscribe(r=>{
+    this._paramMapSubscription = this._activeRoute.paramMap.subscribe((r) => {
       this.nom = r.get('nom') ?? '';
     });
+  }
+
+  ngOnDestroy() {
+    this._paramMapSubscription?.unsubscribe();
   }
 }
