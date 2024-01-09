@@ -1,31 +1,24 @@
-import { TennisPlayersService } from './../services/tennis-players.service';
-import { Component, OnDestroy } from "@angular/core";
-import { TennisPlayer } from "../Model/tennis-player";
+import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { map, tap } from 'rxjs';
+import { TennisPlayer } from "../Model/tennis-player";
+import { TennisPlayersService } from './../services/tennis-players.service';
 
 @Component({
   selector: 'app-tennis-player',
   templateUrl: './tennis-player.component.html',
   styleUrls: ['./tennis-player.component.scss']
 })
-export class TennisPlayerComponent implements OnDestroy {
+export class TennisPlayerComponent {
 
   public player = new TennisPlayer();
 
-  public _Players: TennisPlayer[] | undefined;
+
   public constructor(private _tennisPlayerService: TennisPlayersService, private _router: Router){
   }
 
-  ngOnInit(){
-    this._tennisPlayerService.getPlayers().subscribe(
-      {
-        next:(players)=> this._Players = players
-      }
-    )
-  }
-  ngOnDestroy(): void {
-  }
+
 
   public playerForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.maxLength(100)]),
@@ -56,7 +49,9 @@ export class TennisPlayerComponent implements OnDestroy {
             this.playerForm.get(controlName)!.touched;
   }
 
-  public getPlayers(){
-    return this._tennisPlayerService.getPlayers();
-  }
+  public isLoading = true;
+
+  public readonly players = this._tennisPlayerService.getPlayers().pipe(
+      tap((data)=>{ this.isLoading = false})
+    );
 }

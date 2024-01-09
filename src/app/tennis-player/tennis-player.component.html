@@ -3,10 +3,10 @@
 <p>Salut {{ player.firstName }} {{player.lastName }}, tu as le classement n°{{ player.rank}}</p>
 
 <ul>
-  <li *ngFor="let p of getPlayers() | async" (click)="disBonjourAuJoueur(p)">
+  <li *ngFor="let p of players | async" (click)="disBonjourAuJoueur(p)">
     {{ p.firstName }} {{ p.lastName }}
   </li>
-  <div *ngIf="_Players?.length == 1" > Pas de joueurs disponibles </div>
+  <div *ngIf="isLoading"> Chargement en cours </div>
 </ul>
 
 
