@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TennisPlayersService } from 'src/app/services/tennis-players.service';
 
 @Component({
   selector: 'app-bonjour',
@@ -10,8 +11,12 @@ export class BonjourComponent {
 
 
   public nom = '';
-  public constructor(private _activeRoute: ActivatedRoute) {
+  public constructor(private _activeRoute: ActivatedRoute, private _tennisPlayerService: TennisPlayersService) {
 
+  }
+
+  public getCountTennisPlayers(){
+    return this._tennisPlayerService.getPlayersCount();
   }
 
   ngOnInit(){

@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { TennisPlayer } from '../Model/tennis-player';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TennisPlayersService {
 
+
+  public constructor(private _httpClient: HttpClient) { }
 
   private _Players: TennisPlayer[] = [];
 
@@ -27,7 +30,12 @@ export class TennisPlayersService {
 
   }
 
+  private _players : Observable<TennisPlayer[]> = this._httpClient.get<TennisPlayer[]>('assets/players.json');
   public getPlayers(){
-    return this._Players;
+    return this._players;
+  }
+
+  public getPlayersCount(){
+    return this._Players.length;
   }
 }

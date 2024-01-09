@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "lastName": "Sampras",
+    "firstName": "Pete",
+    "rank": 5
+  },
+  {
+    "id": 2,
+    "lastName": "Djockovic",
+    "firstName": "Novak",
+    "rank": 5
+  },
+  {
+    "id": 3,
+    "lastName": "Alcaraz",
+    "firstName": "Carlos",
+    "rank": 5
+  }
+]

@@ -21,7 +21,6 @@ import { BonjourComponent } from './route-views/bonjour/bonjour.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
