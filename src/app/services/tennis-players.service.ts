@@ -15,6 +15,7 @@ export class TennisPlayersService {
 
   public addPlayer(p: TennisPlayer){
     // il faut gérer les id ici pour faire fonctionner les méthodes d'update et get(id)
+    // il faudra le faire via une api http plus tard
     this._Players.push(p);
   }
 
@@ -30,7 +31,7 @@ export class TennisPlayersService {
 
   }
 
-  private _players : Observable<TennisPlayer[]> = this._httpClient.get<TennisPlayer[]>('assets/players.json');
+  private _players = this._httpClient.get<TennisPlayer[]>('assets/players.json');
   public getPlayers(){
     return this._players;
   }
