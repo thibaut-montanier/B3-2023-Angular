@@ -6,12 +6,19 @@ namespace WebApplication1.Controllers {
 
     [ApiController]
     [Route("api/[controller]")]
-    public class WeatherForecastController : ControllerBase {
+    public class TownController : ControllerBase {
+
+
+        private static readonly string[] Summaries = new[]
+        {
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
+
         public static List<Town> _MesVilles = new List<Town>();
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<TownController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger) {
+        public TownController(ILogger<TownController> logger) {
             _logger = logger;
         }
 
@@ -32,5 +39,7 @@ namespace WebApplication1.Controllers {
         public Town Get(int id) {
             return _MesVilles.Single(v=>v.Id == id);
         }
+
+
     }
 }
