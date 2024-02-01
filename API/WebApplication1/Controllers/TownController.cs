@@ -9,11 +9,6 @@ namespace WebApplication1.Controllers {
     public class TownController : ControllerBase {
 
 
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         public static List<Town> _MesVilles = new List<Town>();
 
         private readonly ILogger<TownController> _logger;

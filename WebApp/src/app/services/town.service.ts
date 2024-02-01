@@ -4,12 +4,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class WeatherService {
+export class TownService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  private _getWeather =this._httpClient.get('/api/WeatherForecast');
-  public getWeather(){
-    return this._getWeather;
+  private _getTowns = this._httpClient.get('/api/town');
+  public getTowns(){
+    return this._getTowns;
   }
 }
