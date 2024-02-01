@@ -8,12 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AccueilComponent } from './route-views/accueil/accueil.component';
 import { BonjourComponent } from './route-views/bonjour/bonjour.component';
+import { WeatherComponent } from './route-views/weather/weather.component';
 @NgModule({
   declarations: [
     AppComponent,
     TennisPlayerComponent,
     AccueilComponent,
-    BonjourComponent
+    BonjourComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
