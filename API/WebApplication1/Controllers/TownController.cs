@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.ViewModels;
 
 namespace WebApplication1.Controllers {
 
@@ -22,24 +23,23 @@ namespace WebApplication1.Controllers {
         }
 
 
+        private static int MaxTownId = 0;
         [HttpPost()]
-        public void PostData([FromBody] Town town) {   
+        public void PostData([FromBody] Town town) {
+            town.Id = ++MaxTownId;
             _MesVilles.Add(town);
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get() {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+        [HttpGet]
+        public IEnumerable<Town> Get() {
+            return _MesVilles;
         }
 
-        public class Town {
-            public string Country { get; set; }
-            public string Name { get; set; }
+        [HttpGet("{id}")]
+        public Town Get(int id) {
+            return _MesVilles.Single(v=>v.Id == id);
         }
+
+
     }
 }
